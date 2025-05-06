@@ -1,8 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://b5phsynpvcjjn"]
 
-[ext_resource type="Texture2D" uid="uid://b4xqkirybewud" path="res://assets/sprites/knight.png" id="1_6e84v"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_y32ns"]
+[ext_resource type="PackedScene" uid="uid://bqp76d8c82ei8" path="res://scenes/Player.tscn" id="1_6e84v"]
+[ext_resource type="Texture2D" uid="uid://b4xqkirybewud" path="res://assets/sprites/knight.png" id="2_4dvvg"]
 
 [sub_resource type="Animation" id="Animation_kdubu"]
 length = 0.8
@@ -95,14 +94,10 @@ _data = {
 
 [node name="Player" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-sprite_frames = SubResource("SpriteFrames_y32ns")
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_6e84v")]
 
 [node name="Knight" type="Sprite2D" parent="."]
-texture = ExtResource("1_6e84v")
+texture = ExtResource("2_4dvvg")
 hframes = 8
 vframes = 8
 frame = 30
