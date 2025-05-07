@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvtgbjahcqgvp"]
+
+[ext_resource type="Texture2D" uid="uid://draa1b41ktbus" path="res://assets/images/stone_alt_2_3 - Color Map.png" id="1_lmq87"]
+[ext_resource type="Texture2D" uid="uid://d2gm4lcy1sk6" path="res://assets/images/stone_alt_2_3 - Color Map (Normal Map).png" id="2_sey34"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_bb450"]
+diffuse_texture = ExtResource("1_lmq87")
+normal_texture = ExtResource("2_sey34")
+
+[node name="Sprite2D3" type="Sprite2D"]
+z_index = -2
+texture = SubResource("CanvasTexture_bb450")

@@ -3,9 +3,8 @@ extends CharacterBody2D
 #player movement variables
 @export var speed = 100
 @export var gravity = 200
-@export var jump_height = -100
-var is_attacking = false
-var is_climbing = false
+@export var jump_height = -150
+var is_jumping = false
 
 #movement and physics
 func _physics_process(delta):
@@ -16,7 +15,7 @@ func _physics_process(delta):
 	#applies movement
 	move_and_slide() 
 	#applies animations
-	if !is_attacking:
+	if !Global.is_attacking || !Global.is_climbing:
 		player_animations()
 
 func horizontal_movement():
@@ -28,14 +27,16 @@ func horizontal_movement():
 #animations
 func player_animations():
 	#on left (add is_action_just_released so you continue running after jumping)
-	if Input.is_action_pressed("ui_left") || Input.is_action_just_released("ui_jump"):
+	if (Input.is_action_pressed("ui_left") || Input.is_action_just_released("ui_jump")) && Global.is_jumping == false:
 		$AnimatedSprite2D.flip_h = true
-		$AnimatedSprite2D.play("run")
+		if is_on_floor():
+			$AnimatedSprite2D.play("run")
 
 	#on right (add is_action_just_released so you continue running after jumping)
-	if Input.is_action_pressed("ui_right") || Input.is_action_just_released("ui_jump"):
+	if (Input.is_action_pressed("ui_right") || Input.is_action_just_released("ui_jump")) && Global.is_jumping == false:
 		$AnimatedSprite2D.flip_h = false
-		$AnimatedSprite2D.play("run")
+		if is_on_floor():
+			$AnimatedSprite2D.play("run")
 		
 	#on idle if nothing is being pressed
 	if !Input.is_anything_pressed():
@@ -45,23 +46,31 @@ func player_animations():
 func _input(event):
 	#on attack
 	if event.is_action_pressed("ui_attack"):
-		is_attacking = true
+		Global.is_attacking = true
 		$AnimatedSprite2D.play("attack")
 	#on jump
 	if event.is_action_pressed("ui_jump") and is_on_floor():
 		velocity.y = jump_height
 		$AnimatedSprite2D.play("jump")
-	#on climbing ladders
-	if is_climbing == true:
+		Global.is_jumping = true
+		
+	 #on climbing ladders
+	if Global.is_climbing == true:
+		if !Input.is_anything_pressed():
+			$AnimatedSprite2D.play("idle")
+
 		if Input.is_action_pressed("ui_up"):
 			$AnimatedSprite2D.play("climb") 
 			gravity = 100
-			velocity.y = -200
+			velocity.y = -160
+			Global.is_jumping = true
 
 	#reset gravity
 	else:
 		gravity = 200
-		is_climbing = false
+		Global.is_climbing = false
+		Global.is_jumping = false
 		
 func _on_animated_sprite_2d_animation_finished() -> void:
-	is_attacking = false
+	Global.is_attacking = false
+	Global.is_climbing = false
