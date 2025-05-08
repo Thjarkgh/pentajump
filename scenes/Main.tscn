@@ -434,7 +434,7 @@ visibility_layer = 3
 
 [node name="Player" parent="." instance=ExtResource("1_elqb8")]
 top_level = true
-position = Vector2(1500, 272)
+position = Vector2(85, 452)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 position = Vector2(-0.999939, 2)
