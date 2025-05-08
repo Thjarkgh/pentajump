@@ -1,0 +1,300 @@
+[gd_scene load_steps=18 format=3 uid="uid://d1x1fos74pxqg"]
+
+[ext_resource type="Script" uid="uid://cjn5vojtdt7wm" path="res://scripts/door.gd" id="1_1ebfc"]
+[ext_resource type="Texture2D" uid="uid://bwu8yr66c8r63" path="res://assets/sprites/world_tileset.png" id="1_mg2as"]
+[ext_resource type="FontFile" uid="uid://wedt0845wngm" path="res://assets/PixelOperator8-Bold.ttf" id="2_1ebfc"]
+[ext_resource type="FontFile" uid="uid://bgbwxdfilqs6" path="res://assets/fonts/PixelOperator8.ttf" id="3_ao1jx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7q0m"]
+size = Vector2(14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k7y2"]
+atlas = ExtResource("1_mg2as")
+region = Rect2(128, 48, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kdo1k"]
+font = ExtResource("2_1ebfc")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_v12wq"]
+font = ExtResource("3_ao1jx")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_m78fr"]
+font = ExtResource("3_ao1jx")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_ao1jx"]
+font = ExtResource("3_ao1jx")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_y7q0m"]
+font = ExtResource("3_ao1jx")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_4k7y2"]
+font = ExtResource("3_ao1jx")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_sdj7o"]
+font = ExtResource("3_ao1jx")
+font_size = 20
+
+[sub_resource type="Theme" id="Theme_0bx5k"]
+default_font = ExtResource("3_ao1jx")
+default_font_size = 25
+
+[sub_resource type="Animation" id="Animation_8bb8g"]
+resource_name = "ui_visibility"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_frobt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/Menu:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i2kkb"]
+_data = {
+&"RESET": SubResource("Animation_frobt"),
+&"ui_visibility": SubResource("Animation_8bb8g")
+}
+
+[node name="Door" type="Area2D"]
+process_mode = 3
+script = ExtResource("1_1ebfc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_y7q0m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_4k7y2")
+
+[node name="UI" type="CanvasLayer" parent="."]
+layer = 0
+visible = false
+
+[node name="Menu" type="ColorRect" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.137255, 0.184314, 0.168627, 1)
+
+[node name="Container" type="ColorRect" parent="UI/Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 35.0
+offset_top = 27.0
+offset_right = -39.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.188235, 0.25098, 0.227451, 1)
+
+[node name="Label" type="Label" parent="UI/Menu/Container"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -252.0
+offset_top = 80.0
+offset_right = 252.0
+offset_bottom = 119.0
+grow_horizontal = 2
+text = "Level Completed!"
+label_settings = SubResource("LabelSettings_kdo1k")
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Border" type="ColorRect" parent="UI/Menu/Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -150.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.270588, 0.345098, 0.317647, 1)
+
+[node name="TimeCompleted" type="ColorRect" parent="UI/Menu/Container"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -95.0
+offset_right = 50.0
+offset_bottom = -95.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="UI/Menu/Container/TimeCompleted"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 210.0
+offset_right = 546.0
+offset_bottom = 27.0
+grow_vertical = 2
+text = "Time:"
+label_settings = SubResource("LabelSettings_v12wq")
+vertical_alignment = 1
+
+[node name="Value" type="Label" parent="UI/Menu/Container/TimeCompleted"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -668.0
+offset_right = -268.0
+offset_bottom = 27.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.352941)
+text = "0"
+label_settings = SubResource("LabelSettings_m78fr")
+
+[node name="Score" type="ColorRect" parent="UI/Menu/Container"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -75.0
+offset_right = 50.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="UI/Menu/Container/Score"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 210.0
+offset_top = 40.0
+offset_right = 354.0
+offset_bottom = 67.0
+grow_vertical = 2
+text = "Score"
+label_settings = SubResource("LabelSettings_ao1jx")
+
+[node name="Value" type="Label" parent="UI/Menu/Container/Score"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -668.0
+offset_top = 40.0
+offset_right = -268.0
+offset_bottom = 67.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.352941)
+text = "0"
+label_settings = SubResource("LabelSettings_y7q0m")
+
+[node name="Ranking" type="ColorRect" parent="UI/Menu/Container"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 50.0
+offset_top = -55.0
+offset_right = 50.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Label" type="Label" parent="UI/Menu/Container/Ranking"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 210.0
+offset_top = 80.0
+offset_right = 354.0
+offset_bottom = 107.0
+grow_vertical = 2
+text = "Ranking:"
+label_settings = SubResource("LabelSettings_4k7y2")
+
+[node name="Value" type="Label" parent="UI/Menu/Container/Ranking"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -668.0
+offset_top = 80.0
+offset_right = -268.0
+offset_bottom = 107.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 0.352941)
+text = "0"
+label_settings = SubResource("LabelSettings_sdj7o")
+
+[node name="RestartButton" type="Button" parent="UI/Menu/Container"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 545.0
+offset_top = -205.0
+offset_right = 815.0
+offset_bottom = -115.0
+grow_vertical = 0
+theme = SubResource("Theme_0bx5k")
+text = "Restart"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_i2kkb")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="pressed" from="UI/Menu/Container/RestartButton" to="." method="_on_restart_button_pressed"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4rept5hhh870"]
+
+[ext_resource type="Script" uid="uid://bnoxjidpk8808" path="res://scripts/pickup.gd" id="1_u187m"]
+[ext_resource type="Texture2D" uid="uid://crm5lvjrb01pj" path="res://assets/sprites/fruit.png" id="2_3bp0e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axj2u"]
+atlas = ExtResource("2_3bp0e")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7gm55"]
+radius = 6.0
+height = 16.0
+
+[node name="Pickup" type="Area2D"]
+script = ExtResource("1_u187m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_axj2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_7gm55")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

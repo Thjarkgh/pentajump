@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://dkw54ripd4ckm"]
+
+[ext_resource type="Texture2D" uid="uid://c43kdcysecim4" path="res://assets/images/light.png" id="1_eep0i"]
+[ext_resource type="Shader" uid="uid://b7arkr0ppd0f8" path="res://scenes/Main.gdshader" id="2_4wikr"]
+[ext_resource type="Texture2D" uid="uid://dxd5xxgomgnoh" path="res://assets/images/Bloody__Pentagramm - Color Map.png" id="3_bkm3p"]
+[ext_resource type="Texture2D" uid="uid://b2nhah5ewlc5e" path="res://assets/images/Bloody__Pentagramm - Color Map (Normal Map).png" id="4_ctudc"]
+
+[sub_resource type="Curve2D" id="Curve2D_2fl0q"]
+bake_interval = 1.0
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -0.00012207, -160, 0, 0, 0, 0, 63.9999, -146, 0, 0, 0, 0, 110, -116, 0, 0, 0, 0, 138, -82, 0, 0, 0, 0, 156, -32, 0, 0, 0, 0, 160, -3.05176e-05, 0, 0, 0, 0, 154, 46, 0, 0, 0, 0, 138, 84, 0, 0, 0, 0, 102, 124, 0, 0, 0, 0, 55.9999, 146, 0, 0, 0, 0, -0.00012207, 160, 0, 0, 0, 0, -50.0001, 152, 0, 0, 0, 0, -92.0001, 130, 0, 0, 0, 0, -126, 100, 0, 0, 0, 0, -148, 64, 0, 0, 0, 0, -160, 5.99997, 0, 0, 0, 0, -156, -38, 0, 0, 0, 0, -140, -76, 0, 0, 0, 0, -114, -114, 0, 0, 0, 0, -68.0001, -146, 0, 0, 0, 0, -0.00012207, -160)
+}
+point_count = 21
+
+[sub_resource type="Animation" id="Animation_txgeo"]
+resource_name = "circling_light"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_85htr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5n5ev"]
+_data = {
+&"RESET": SubResource("Animation_85htr"),
+&"circling_light": SubResource("Animation_txgeo")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4wf31"]
+shader = ExtResource("2_4wikr")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_x0a35"]
+diffuse_texture = ExtResource("3_bkm3p")
+normal_texture = ExtResource("4_ctudc")
+
+[node name="Pentagram" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+position = Vector2(6.10352e-05, 1.52588e-05)
+scale = Vector2(0.5, 0.5)
+curve = SubResource("Curve2D_2fl0q")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-0.00012207, -160)
+rotation = -0.203045
+progress = 1001.74
+
+[node name="PointLight2D" type="PointLight2D" parent="Path2D/PathFollow2D"]
+z_index = 1
+scale = Vector2(0.5625, 0.5625)
+energy = 3.87
+texture = ExtResource("1_eep0i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Path2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_5n5ev")
+}
+autoplay = "circling_light"
+
+[node name="Pentagram" type="Sprite2D" parent="."]
+z_index = -2
+material = SubResource("ShaderMaterial_4wf31")
+position = Vector2(6.10352e-05, 1.52588e-05)
+scale = Vector2(0.5, 0.5)
+texture = SubResource("CanvasTexture_x0a35")

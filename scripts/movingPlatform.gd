@@ -70,3 +70,11 @@ func _physics_process(delta):
 			position.y = lerp(initial_position, initial_position - movement_range, progress / (movement_range / movement_speed))
 			if progress <= 0:
 				switch_state(State.WAIT_AT_BOTTOM)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		if (position.y + 48) <= (body.position.y) && (position.x - 8<= body.position.x + 8) && (position.x + 8 >= body.position.x - 8):
+			body.take_damage()
+			body.take_damage()
+			body.take_damage()

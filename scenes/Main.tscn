@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dbwaek5qlwpdq"]
+[gd_scene load_steps=32 format=4 uid="uid://dbwaek5qlwpdq"]
 
 [ext_resource type="PackedScene" uid="uid://bqp76d8c82ei8" path="res://scenes/Player.tscn" id="1_elqb8"]
 [ext_resource type="Texture2D" uid="uid://c43kdcysecim4" path="res://assets/images/light.png" id="2_q8u5g"]
@@ -6,16 +6,17 @@
 [ext_resource type="Texture2D" uid="uid://tqodavbev1pa" path="res://assets/sprites/platforms.png" id="3_vcsgt"]
 [ext_resource type="Texture2D" uid="uid://bx3vkha23v3ph" path="res://assets/images/mycelium_side.png" id="4_c01mt"]
 [ext_resource type="PackedScene" uid="uid://b55g1flkqd7of" path="res://scenes/Ladder.tscn" id="5_vcsgt"]
-[ext_resource type="Texture2D" uid="uid://dxd5xxgomgnoh" path="res://assets/images/Bloody__Pentagramm - Color Map.png" id="6_jlsqs"]
 [ext_resource type="Texture2D" uid="uid://bjsei2xm0jm4p" path="res://assets/images/snow_side.png" id="6_qmy6f"]
-[ext_resource type="Shader" uid="uid://b7arkr0ppd0f8" path="res://scenes/Main.gdshader" id="7_lhr70"]
 [ext_resource type="Texture2D" uid="uid://c0hnb2esp8nlv" path="res://assets/images/dirt.png" id="7_mwfav"]
-[ext_resource type="Texture2D" uid="uid://b2nhah5ewlc5e" path="res://assets/images/Bloody__Pentagramm - Color Map (Normal Map).png" id="7_q8u5g"]
 [ext_resource type="Script" uid="uid://cyxhkn4n3koqn" path="res://scenes/pentagram_light.gd" id="8_mwfav"]
-[ext_resource type="Texture2D" uid="uid://kcc7kmby33pm" path="res://assets/images/Decal_birch.bmp" id="10_wp0k4"]
-[ext_resource type="Texture2D" uid="uid://rgvxwnfplr8m" path="res://assets/images/Normal Map birch.bmp" id="11_bjd11"]
+[ext_resource type="PackedScene" uid="uid://dkw54ripd4ckm" path="res://scenes/Pentagram.tscn" id="14_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://dvtgbjahcqgvp" path="res://scenes/BackgroundSprite.tscn" id="15_3p2gp"]
 [ext_resource type="PackedScene" uid="uid://bmn5bc2a2oaio" path="res://scenes/MovingPlatform.tscn" id="16_cvmbd"]
+[ext_resource type="PackedScene" uid="uid://d1x1fos74pxqg" path="res://scenes/Door.tscn" id="16_ft6cd"]
+[ext_resource type="PackedScene" uid="uid://xl6nw78bwtnc" path="res://scenes/Coin.tscn" id="17_bb450"]
+[ext_resource type="PackedScene" uid="uid://2jkdcq56o6tj" path="res://scenes/Lava.tscn" id="17_ft6cd"]
+[ext_resource type="PackedScene" uid="uid://3pyhf2u6rmfh" path="res://scenes/BombSpawner.tscn" id="18_bb450"]
+[ext_resource type="PackedScene" uid="uid://bkq0f0seimuxr" path="res://scenes/BoxSpawner.tscn" id="19_nfivy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3p2gp"]
 texture = ExtResource("2_rarhs")
@@ -46,7 +47,10 @@ texture = ExtResource("2_rarhs")
 7:0/0 = 0
 7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:0/0 = 0
+8:0/0/terrain_set = 0
+8:0/0/terrain = 2
 8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0/terrains_peering_bit/bottom_side = 2
 9:0/0 = 0
 9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:0/0 = 0
@@ -80,7 +84,10 @@ texture = ExtResource("2_rarhs")
 7:1/0 = 0
 7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:1/0 = 0
+8:1/0/terrain_set = 0
+8:1/0/terrain = 2
 8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0/terrains_peering_bit/top_side = 2
 9:1/0 = 0
 9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 10:1/0 = 0
@@ -279,9 +286,19 @@ texture = ExtResource("3_vcsgt")
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.07915, -8, 1.07915)
 1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 3
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.07915, -8, 1.07915)
+1:2/0/terrains_peering_bit/right_side = 3
+1:2/0/terrains_peering_bit/top_side = 3
+1:2/0/terrains_peering_bit/top_right_corner = 3
 2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 3
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.07915, -8, 1.07915)
+2:2/0/terrains_peering_bit/left_side = 3
+2:2/0/terrains_peering_bit/top_left_corner = 3
+2:2/0/terrains_peering_bit/top_side = 3
 0:3/0 = 0
 0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 1.07915, -8, 1.07915)
 1:3/0 = 0
@@ -299,7 +316,7 @@ texture = ExtResource("4_c01mt")
 texture = ExtResource("6_qmy6f")
 0:0/size_in_atlas = Vector2i(16, 16)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128.125, -128.074, 128.004, -127.995, 128.024, 128.074, -127.97, 128.056)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128.024, 128.074, -127.97, 128.056)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nfivy"]
 texture = ExtResource("7_mwfav")
@@ -315,6 +332,10 @@ terrain_set_0/terrain_0/name = "Platforms 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_0/terrain_1/name = "grass"
 terrain_set_0/terrain_1/color = Color(0.121569, 0.505882, 0.184314, 1)
+terrain_set_0/terrain_2/name = "Stone"
+terrain_set_0/terrain_2/color = Color(0.274986, 0.297808, 0.297819, 1)
+terrain_set_0/terrain_3/name = "StonePlatform"
+terrain_set_0/terrain_3/color = Color(0.375, 0.5, 0.25, 1)
 terrain_set_1/mode = 0
 sources/1 = SubResource("TileSetAtlasSource_3p2gp")
 sources/2 = SubResource("TileSetAtlasSource_cvmbd")
@@ -322,31 +343,98 @@ sources/3 = SubResource("TileSetAtlasSource_ft6cd")
 sources/4 = SubResource("TileSetAtlasSource_bb450")
 sources/5 = SubResource("TileSetAtlasSource_nfivy")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qmy6f"]
-atlas = ExtResource("10_wp0k4")
-region = Rect2(0, 0, 512, 512)
+[sub_resource type="Curve2D" id="Curve2D_cvmbd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 608, 32, 0, 0, 0, 0, 536, 32, 0, 0, 0, 0, 528, 24, 0, 0, 0, 0, 504, 24, 0, 0, 0, 0, 488, 48, 0, 0, 0, 0, 456, 224, 0, 0, 0, 0, 400, 224, 0, 0, 0, 0, 384, 256, 0, 0, 0, 0, 344, 256, 0, 0, 0, 0, 296, 304, 0, 0, 0, 0, 264, 304, 0, 0, 0, 0, 240, 352, 0, 0, 0, 0, 168, 352, 0, 0, 0, 0, 136, 488, 0, 0, 0, 0, 16, 488)
+}
+point_count = 15
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mwfav"]
-atlas = ExtResource("11_bjd11")
-region = Rect2(0, 0, 512, 512)
+[sub_resource type="Animation" id="Animation_bb450"]
+resource_name = "bomb_movement"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_3p2gp"]
-diffuse_texture = SubResource("AtlasTexture_qmy6f")
-normal_texture = SubResource("AtlasTexture_mwfav")
+[sub_resource type="Animation" id="Animation_nfivy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wp0k4"]
-shader = ExtResource("7_lhr70")
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1nqs0"]
+_data = {
+&"RESET": SubResource("Animation_nfivy"),
+&"bomb_movement": SubResource("Animation_bb450")
+}
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_wp0k4"]
-diffuse_texture = ExtResource("6_jlsqs")
-normal_texture = ExtResource("7_q8u5g")
+[sub_resource type="Curve2D" id="Curve2D_ft6cd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 647, 15, 0, 0, 0, 0, 662, 33, 0, 0, 0, 0, 671, 61, 0, 0, 0, 0, 1042, 62, 0, 0, 0, 0, 1050, 80, 0, 0, 0, 0, 1075, 79, 0, 0, 0, 0, 1086, 136, 0, 0, 0, 0, 1086, 171)
+}
+point_count = 8
+
+[sub_resource type="Animation" id="Animation_ft6cd"]
+resource_name = "bomb_movement"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spawners/first_top2/BombPath/Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_cvmbd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Spawners/first_top2/BombPath/Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nfivy"]
+_data = {
+&"RESET": SubResource("Animation_cvmbd"),
+&"bomb_movement": SubResource("Animation_ft6cd")
+}
 
 [node name="Main" type="Node2D"]
 visibility_layer = 3
 
 [node name="Player" parent="." instance=ExtResource("1_elqb8")]
 top_level = true
-position = Vector2(82, 493)
+position = Vector2(1500, 272)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player"]
 position = Vector2(-0.999939, 2)
@@ -355,32 +443,608 @@ energy = 0.58
 texture = ExtResource("2_q8u5g")
 script = ExtResource("8_mwfav")
 
-[node name="Ladder" parent="." instance=ExtResource("5_vcsgt")]
+[node name="Ladders" type="Node2D" parent="."]
+
+[node name="Ladder" parent="Ladders" instance=ExtResource("5_vcsgt")]
 position = Vector2(329, 441)
 
-[node name="Level" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAWABEAAgABAAAAAAAXABEAAgABAAAAAAAYABEAAgACAAAAAAAZABEAAgACAAAAAAAWABMAAgABAAAAAAAXABMAAgABAAAAAAAZABMAAgABAAAAAAAaABMAAgABAAAAAAAbABMAAgABAAAAAAAbABEAAgAAAAAAAAAaAA8AAgABAAAAAAAbAA8AAgACAAAAAAAcAA8AAgAAAAAAAAAmABEAAQAAAAAAAAAmABIAAQAAAAAAAAAmABMAAQAAAAAAAAAnABMAAQAAAAEAAAAnABIAAQAAAAEAAAAnABEAAQAAAAEAAAAnABAAAQAAAAEAAAAnAA8AAQAAAAEAAAAnAA4AAQAAAAAAAAAmAA4AAQAAAAEAAAAtABEAAQAAAAAAAAAuABEAAQAAAAAAAAAvABEAAQAAAAAAAAAvABIAAQAAAAEAAAAvABMAAQAAAAEAAAAuABMAAQAAAAEAAAAuABIAAQAAAAEAAAAtABIAAQAAAAEAAAAtABMAAQAAAAEAAAAwABMAAQAAAAEAAAAwABIAAQAAAAEAAAAwABEAAQAAAAEAAAAwABAAAQAAAAEAAAAwAA8AAQAAAAAAAAAYABMAAgACAAAAAAD4/ycABQAAAAAAAAD4/xcABQAAAAAAAAD4/wcABQAAAAAAAAD4//f/BQAAAAAAAAAIAPf/BQAAAAAAAAAYAPf/BQAAAAAAAAAoAPf/BQAAAAAAAAA4APf/BQAAAAAAAABIAPf/BQAAAAAAAABYAPf/BQAAAAAAAABoAPf/BQAAAAAAAAB4APf/BQAAAAAAAAB5APf/BQAAAAAAAAB5AAcABQAAAAAAAAB5ABcABQAAAAAAAAB5ACcABQAAAAAAAAAIACcABAAAAAAAAAAYACcABAAAAAAAAAAoACcABAAAAAAAAAA4ACcABAAAAAAAAABIACcABAAAAAAAAABYACcABAAAAAAAAABoACcABAAAAAAAAAB4ACcABAAAAAAAAAAWABgAAgAAAAAAAAAXABgAAgAAAAAAAAAYABgAAgAAAAAAAAAZABgAAgAAAAAAAAAaABgAAgAAAAAAAAAbABgAAgAAAAAAAAAcABgAAgAAAAAAAAAdABgAAgABAAAAAAAeABgAAgACAAAAAAAfABgAAgACAAAAAAAiABUAAQAAAAAAAAAjABUAAQAAAAAAAAAkABUAAQAAAAAAAAAlABUAAQAAAAAAAAAmABUAAQAAAAEAAAAmABQAAQAAAAEAAAAwABQAAQAAAAEAAAAwABUAAQAAAAEAAAAwABYAAQAAAAEAAAAwABcAAQAAAAEAAAAwABgAAQAAAAEAAAAwABkAAQAAAAEAAAAwABoAAQAAAAEAAAAwABsAAQAAAAEAAAAwABwAAQAAAAEAAAAwAB0AAQAAAAEAAAAwAB4AAQAAAAEAAAAtABQAAQAAAAEAAAAtABUAAQAAAAEAAAAtABYAAQAAAAEAAAAuABUAAQAAAAEAAAAuABQAAQAAAAEAAAAvABQAAQAAAAEAAAAuABYAAQAAAAEAAAAvABYAAQAAAAEAAAAvABcAAQAAAAEAAAAvABUAAQAAAAEAAAAmAA0AAQAAAAEAAAAmAAwAAQAAAAEAAAAmAAsAAQAAAAEAAAAmAAoAAQAAAAEAAAAmAAkAAQAAAAEAAAAmAAgAAQAAAAEAAAAmAAcAAQAAAAEAAAAlAAoAAQAAAAAAAAAkAAoAAQAAAAAAAAAjAAoAAQAAAAAAAAAaAAoAAQAAAAAAAAAZAAoAAQAAAAAAAAAYAAoAAQAAAAAAAAAXAAoAAQAAAAAAAAAWAAoAAQAAAAAAAAAVAAoAAQAAAAAAAAAUAAoAAQAAAAAAAAATAAoAAQAAAAAAAAASAAoAAQAAAAAAAAARAAoAAQAAAAAAAAAQAAoAAQAAAAAAAAAPAAoAAQAAAAAAAAATAAMAAgAAAAAAAAAUAAMAAgABAAAAAAAVAAMAAgACAAAAAAAaAAMAAgAAAAAAAAAbAAMAAgABAAAAAAAcAAMAAgACAAAAAAAhAAMAAgAAAAAAAAAiAAMAAgABAAAAAAAjAAMAAgACAAAAAAAkAAMAAgAAAAAAAAAlAAMAAgABAAAAAAAmAAMAAQAAAAAAAAAmAAYAAQAAAAEAAAAmAAUAAQAAAAEAAAAmAAQAAQAAAAEAAAASABQAAgACAAAAAAARABQAAgABAAAAAAASABcAAgABAAAAAAARABcAAgABAAAAAAAQABcAAgABAAAAAAAPABcAAgABAAAAAAAOABcAAgABAAAAAAANABcAAgABAAAAAAAMABcAAgABAAAAAAALABcAAgABAAAAAAA=")
-tile_set = SubResource("TileSet_lhr70")
-
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(2105, 476)
-texture = SubResource("CanvasTexture_3p2gp")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = -2
-material = SubResource("ShaderMaterial_wp0k4")
-position = Vector2(776, 248)
-texture = SubResource("CanvasTexture_wp0k4")
-
-[node name="Ladder2" parent="." instance=ExtResource("5_vcsgt")]
+[node name="Ladder2" parent="Ladders" instance=ExtResource("5_vcsgt")]
 position = Vector2(524, 231)
 
-[node name="Ladder3" parent="." instance=ExtResource("5_vcsgt")]
+[node name="Ladder3" parent="Ladders" instance=ExtResource("5_vcsgt")]
 position = Vector2(220, 113)
 
-[node name="Sprite2D3" parent="." instance=ExtResource("15_3p2gp")]
-position = Vector2(263, 248)
+[node name="Ladder4" parent="Ladders" instance=ExtResource("5_vcsgt")]
+position = Vector2(895, 544)
 
-[node name="MovingPlatform" parent="." instance=ExtResource("16_cvmbd")]
+[node name="Level" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAWABEAAgABAAAAAAAXABEAAgABAAAAAAAYABEAAgACAAAAAAAZABEAAgACAAAAAAAWABMAAgABAAAAAAAXABMAAgABAAAAAAAZABMAAgABAAAAAAAaABMAAgABAAAAAAAbABMAAgABAAAAAAAbABEAAgAAAAAAAAAaAA8AAgABAAAAAAAbAA8AAgACAAAAAAAcAA8AAgAAAAAAAAAmABEAAQAAAAAAAAAmABMAAQAAAAEAAAAnABMAAQAAAAEAAAAnABIAAQAAAAEAAAAnABEAAQAAAAEAAAAnABAAAQAAAAEAAAAnAA8AAQAAAAEAAAAnAA4AAQAAAAAAAAAmAA4AAQAAAAEAAAAtABEAAQAAAAAAAAAuABEAAQAAAAEAAAAvABEAAQAAAAEAAAAvABIAAQAAAAEAAAAvABMAAQAAAAEAAAAuABMAAQAAAAEAAAAuABIAAQAAAAEAAAAtABIAAQAAAAEAAAAtABMAAQAAAAEAAAAwABMAAQAAAAEAAAAwABIAAQAAAAEAAAAwABEAAQAAAAEAAAAwABAAAQAAAAEAAAAwAA8AAQAAAAEAAAAYABMAAgACAAAAAAD4/ycABQAAAAAAAAD4/xcABQAAAAAAAAD4/wcABQAAAAAAAAD4//f/BQAAAAAAAAAIAPf/BQAAAAAAAAAYAPf/BQAAAAAAAAAoAPf/BQAAAAAAAAA4APf/BQAAAAAAAABIAPf/BQAAAAAAAABYAPf/BQAAAAAAAABoAPf/BQAAAAAAAAB4APf/BQAAAAAAAAB5APf/BQAAAAAAAAB5AAcABQAAAAAAAAB5ABcABQAAAAAAAAB5ACcABQAAAAAAAAB4ACcABAAAAAAAAAAWABgAAgAAAAAAAAAXABgAAgAAAAAAAAAYABgAAgAAAAAAAAAZABgAAgAAAAAAAAAaABgAAgAAAAAAAAAbABgAAgAAAAAAAAAcABgAAgAAAAAAAAAdABgAAgABAAAAAAAeABgAAgACAAAAAAAfABgAAgACAAAAAAAiABUAAQAAAAAAAAAjABUAAQAAAAAAAAAkABUAAQAAAAAAAAAlABUAAQAAAAAAAAAmABUAAQAAAAEAAAAmABQAAQAAAAEAAAAwABQAAQAAAAEAAAAwABUAAQAAAAEAAAAwABYAAQAAAAEAAAAwABcAAQAAAAEAAAAwABgAAQAAAAEAAAAwABkAAQAAAAEAAAAtABQAAQAAAAEAAAAtABUAAQAAAAEAAAAtABYAAQAAAAEAAAAuABUAAQAAAAEAAAAuABQAAQAAAAEAAAAvABQAAQAAAAEAAAAuABYAAQAAAAEAAAAvABYAAQAAAAEAAAAvABcAAQAAAAEAAAAvABUAAQAAAAEAAAAmAA0AAQAAAAEAAAAmAAwAAQAAAAEAAAAmAAsAAQAAAAEAAAAmAAoAAQAAAAEAAAAmAAkAAQAAAAEAAAAmAAgAAQAAAAEAAAAmAAcAAQAAAAEAAAAlAAoAAQAAAAAAAAAkAAoAAQAAAAAAAAAjAAoAAQAAAAAAAAAaAAoAAQAAAAAAAAAZAAoAAQAAAAAAAAAYAAoAAQAAAAAAAAAXAAoAAQAAAAAAAAAWAAoAAQAAAAAAAAAVAAoAAQAAAAAAAAAUAAoAAQAAAAAAAAATAAoAAQAAAAAAAAASAAoAAQAAAAAAAAARAAoAAQAAAAAAAAAQAAoAAQAAAAAAAAAPAAoAAQAAAAAAAAATAAMAAgAAAAAAAAAUAAMAAgABAAAAAAAVAAMAAgACAAAAAAAaAAMAAgAAAAAAAAAbAAMAAgABAAAAAAAcAAMAAgACAAAAAAAhAAMAAgAAAAAAAAAiAAMAAgABAAAAAAAjAAMAAgACAAAAAAAkAAMAAgAAAAAAAAAlAAMAAgABAAAAAAAmAAMAAQAAAAAAAAAmAAYAAQAAAAEAAAAmAAUAAQAAAAEAAAAmAAQAAQAAAAEAAAASABQAAgACAAAAAAARABQAAgABAAAAAAASABcAAgABAAAAAAARABcAAgABAAAAAAAQABcAAgABAAAAAAAPABcAAgABAAAAAAAOABcAAgABAAAAAAANABcAAgABAAAAAAAMABcAAgABAAAAAAALABcAAgABAAAAAABbABcAAQAIAAEAAABbABYAAQAIAAAAAABbABUAAQAIAAAAAABbABQAAQAIAAAAAABbABMAAQAIAAAAAABbABIAAQAIAAAAAABbABEAAQAIAAAAAABbABAAAQAIAAAAAABbAA8AAQAIAAAAAABbAA4AAQAIAAAAAABbAA0AAQAIAAAAAABbAAwAAQAIAAAAAABbAAsAAQAIAAAAAABbAAoAAQAIAAAAAABbAAkAAQAIAAAAAABbAAgAAQAIAAAAAABbAAcAAQAIAAAAAABcAAcAAQAIAAEAAABdAAcAAQAIAAEAAABeAAcAAQAIAAEAAABfAAcAAQAIAAEAAABgAAcAAQAIAAEAAABhAAcAAQAIAAEAAABiAAcAAQAIAAEAAABjAAcAAQAIAAEAAABkAAcAAQAIAAEAAABlAAcAAQAIAAEAAABmAAcAAQAIAAEAAABnAAcAAQAIAAEAAABoAAcAAQAIAAEAAABpAAcAAQAIAAEAAABqAAcAAQAIAAEAAABrAAcAAQAIAAEAAABsAAcAAQAIAAAAAABsAAgAAQAIAAEAAABsAAkAAQAIAAEAAABsAAoAAQAIAAEAAABsAAsAAQAIAAEAAABsAAwAAQAIAAEAAABsAA0AAQAIAAEAAABsAA4AAQAIAAEAAABsAA8AAQAIAAEAAABsABAAAQAIAAEAAABsABEAAQAIAAEAAABsABIAAQAIAAEAAABsABMAAQAIAAEAAABsABQAAQAIAAEAAABsABUAAQAIAAEAAABsABYAAQAIAAEAAABsABcAAQAIAAEAAABsABgAAQAIAAEAAABbABgAAQAIAAEAAABcABgAAQAIAAEAAABdABgAAQAIAAEAAABeABgAAQAIAAEAAABfABgAAQAIAAEAAABgABgAAQAIAAEAAABhABgAAQAIAAEAAABiABgAAQAIAAEAAABlABgAAQAIAAEAAABmABgAAQAIAAEAAABnABgAAQAIAAEAAABoABgAAQAIAAEAAABpABgAAQAIAAEAAABqABgAAQAIAAEAAABrABgAAQAIAAEAAAAnABQAAQAAAAEAAAAnABUAAQAAAAEAAAAmABIAAQAAAAEAAAAnAAQAAQAAAAAAAAAoAAQAAQAAAAAAAAAsAAQAAQAAAAAAAAAtAAQAAQAAAAAAAAAuAAQAAQAAAAAAAAAvAAQAAQAAAAAAAAAwAAQAAQAAAAAAAAAxAAQAAQAAAAAAAAAtAAkAAQAAAAAAAAAuAAkAAQAAAAAAAAAvAAkAAQAAAAAAAAAwAAkAAQAAAAAAAAAxAAkAAQAAAAAAAAAyAAkAAQAAAAAAAAAzAAkAAQAAAAAAAAA1AAkAAQAAAAAAAAA2AAkAAQAAAAAAAAA0AAkAAQAAAAAAAABYACcABAAAAAAAAABoACcABAAAAAAAAABIACcABAAAAAAAAAA4ACcABAAAAAAAAAAoACcABAAAAAAAAAAYACcABAAAAAAAAAAIACcABAAAAAAAAABcABcAAQAIAAAAAABcABYAAQAIAAAAAABcABUAAQAIAAAAAABcABQAAQAIAAAAAABgABUAAQAIAAEAAABgABYAAQAIAAEAAABgABcAAQAIAAEAAABgABQAAQAIAAAAAABkABAAAgACAAIAAABjABAAAgABAAIAAABjAAYAAQAIAAAAAABkAAYAAQAIAAAAAABkAAUAAQAIAAAAAABjAAUAAQAIAAAAAABiAAQAAQAIAAEAAABhAAUAAQAIAAEAAABhAAYAAQAIAAEAAABgAAYAAQAIAAAAAABgAAUAAQAIAAAAAABhAAQAAQAIAAAAAABjAAQAAQAIAAAAAABkAAQAAQAIAAAAAABlAAQAAQAIAAEAAABmAAUAAQAIAAEAAABmAAYAAQAIAAEAAABnAAYAAQAIAAAAAABnAAUAAQAIAAAAAABmAAQAAQAIAAAAAABfAAEAAQAIAAEAAABfAAIAAQAIAAEAAABfAAMAAQAIAAEAAABgAAQAAQAIAAAAAABhAAIAAQAIAAAAAABhAAEAAQAIAAAAAABgAAAAAQAIAAEAAABmAAIAAQAIAAAAAABnAAQAAQAIAAAAAABoAAMAAQAIAAEAAABoAAIAAQAIAAAAAABoAAEAAQAIAAAAAABnAAAAAQAIAAEAAABmAAEAAQAIAAAAAABiAAIAAQAIAAEAAABiAAMAAQAIAAEAAABjAAMAAQAIAAAAAABkAAIAAQAIAAEAAABjAAIAAQAIAAAAAABlAAIAAQAIAAEAAABlAAMAAQAIAAEAAABkAAMAAQAIAAEAAABfAAAAAQAIAAAAAABoAAAAAQAIAAAAAABpAAAAAQAIAAEAAABpAAEAAQAIAAEAAABqAAAAAQAIAAEAAABeAAAAAQAIAAEAAABdAAAAAQAIAAEAAABeAAEAAQAIAAEAAABgAAEAAQAIAAEAAABnAAEAAQAIAAEAAABfAAQAAQAIAAEAAABoAAQAAQAIAAEAAABpAAIAAQAIAAEAAABeAAIAAQAIAAEAAABrABcAAQAIAAAAAABrABYAAQAIAAAAAABrABUAAQAIAAAAAABrABQAAQAIAAAAAABnABcAAQAIAAAAAABnABYAAQAIAAAAAABnABUAAQAIAAAAAABnABQAAQAIAAAAAABiABYAAQAIAAEAAABjABYAAQAIAAEAAABmABUAAQAIAAEAAABqABIAAQAIAAEAAABrABAAAQAIAAEAAABnAAoAAQAIAAEAAABcABAAAQAIAAEAAABdABIAAQAIAAEAAABgAAoAAQAIAAEAAABbAAYAAQAIAAAAAABcAAYAAQAIAAAAAABbAAUAAQAIAAAAAABcAAUAAQAIAAAAAABbAAQAAQAIAAAAAABbAAMAAQAIAAAAAABbAAIAAQAIAAAAAABaAAIAAQAIAAEAAABZAAIAAQAIAAEAAABYAAIAAQAIAAEAAABXAAIAAQAIAAEAAABYAAEAAQAIAAAAAABZAAEAAQAIAAAAAABaAAEAAQAIAAAAAABdAAYAAQAIAAAAAABsAAYAAQAIAAAAAABsAAUAAQAIAAAAAABsAAQAAQAIAAAAAABsAAMAAQAIAAAAAABsAAIAAQAIAAAAAABtAAIAAQAIAAEAAABuAAIAAQAIAAEAAABvAAIAAQAIAAEAAABwAAIAAQAIAAEAAABvAAEAAQAIAAAAAABuAAEAAQAIAAAAAABtAAEAAQAIAAAAAABrAAYAAQAIAAAAAABrAAUAAQAIAAAAAABqAAYAAQAIAAAAAABwAAMAAQAIAAEAAABwAAQAAQAIAAEAAABwAAUAAQAIAAEAAABwAAYAAQAIAAEAAABwAAcAAQAIAAEAAABwAAgAAQAIAAEAAABwAAkAAQAIAAEAAABXAAMAAQAIAAEAAABXAAQAAQAIAAEAAABXAAUAAQAIAAEAAABXAAYAAQAIAAEAAABXAAcAAQAIAAEAAABXAAgAAQAIAAEAAABXAAkAAQAIAAEAAABXAAoAAQAIAAEAAABXAAsAAQAIAAEAAABXAAwAAQAIAAEAAABXAA0AAQAIAAEAAABXAA4AAQAIAAEAAABXAA8AAQAIAAEAAABXABAAAQAIAAEAAABXABEAAQAIAAEAAABXABIAAQAIAAEAAABXABMAAQAIAAEAAABXABQAAQAIAAEAAABXABUAAQAIAAEAAABXABYAAQAIAAEAAABXABcAAQAIAAEAAABXABgAAQAIAAEAAABXABkAAQAIAAEAAABwAAoAAQAIAAEAAABwAAsAAQAIAAEAAABwAAwAAQAIAAEAAABwAA0AAQAIAAEAAABwAA4AAQAIAAEAAABwAA8AAQAIAAEAAABwABAAAQAIAAEA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")
+tile_set = SubResource("TileSet_lhr70")
+
+[node name="Door" parent="Level" instance=ExtResource("16_ft6cd")]
+position = Vector2(1600, 248)
+
+[node name="MovingPlatforms" type="Node2D" parent="."]
+
+[node name="MovingPlatform" parent="MovingPlatforms" instance=ExtResource("16_cvmbd")]
 position = Vector2(214, 455)
+
+[node name="MovingPlatform2" parent="MovingPlatforms" instance=ExtResource("16_cvmbd")]
+position = Vector2(1440, 456)
+
+[node name="MovingPlatform3" parent="MovingPlatforms" instance=ExtResource("16_cvmbd")]
+position = Vector2(1192, 536)
+
+[node name="Lava" parent="." instance=ExtResource("17_ft6cd")]
+position = Vector2(32, 16)
+scale = Vector2(0.2, 0.2)
+
+[node name="Lava4" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 720)
+scale = Vector2(1, 1)
+
+[node name="Lava2" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 240)
+scale = Vector2(1, 1)
+
+[node name="Lava3" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 480)
+
+[node name="Lava6" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 1200)
+scale = Vector2(1, 1)
+
+[node name="Lava5" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 960)
+scale = Vector2(1, 1)
+
+[node name="Lava7" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 1440)
+scale = Vector2(1, 1)
+
+[node name="Lava8" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 1680)
+scale = Vector2(1, 1)
+
+[node name="Lava9" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 1920)
+scale = Vector2(1, 1)
+
+[node name="Lava10" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 2160)
+scale = Vector2(1, 1)
+
+[node name="Lava11" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 2400)
+scale = Vector2(1, 1)
+
+[node name="Lava12" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 2640)
+scale = Vector2(1, 1)
+
+[node name="Lava13" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 2880)
+scale = Vector2(1, 1)
+
+[node name="Lava14" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 3120)
+scale = Vector2(1, 1)
+
+[node name="Lava15" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 3360)
+scale = Vector2(1, 1)
+
+[node name="Lava16" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(-7.62939e-05, 3600)
+scale = Vector2(1, 1)
+
+[node name="Lava17" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(6990, 1790)
+scale = Vector2(1, 1)
+
+[node name="Lava18" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(6990, 1535)
+scale = Vector2(1, 1)
+
+[node name="Lava19" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(6990, 1280)
+scale = Vector2(1, 1)
+
+[node name="Lava20" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(6990, 1025)
+scale = Vector2(1, 1)
+
+[node name="Lava21" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(6990, 770)
+scale = Vector2(1, 1)
+
+[node name="Lava41" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(6990, 515)
+scale = Vector2(1, 1)
+
+[node name="Lava42" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(6990, 260)
+scale = Vector2(1, 1)
+
+[node name="Lava22" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(8690, 1790)
+scale = Vector2(1, 1)
+
+[node name="Lava23" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(8690, 1535)
+scale = Vector2(1, 1)
+
+[node name="Lava24" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(8690, 1280)
+scale = Vector2(1, 1)
+
+[node name="Lava25" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(8690, 1025)
+scale = Vector2(1, 1)
+
+[node name="Lava26" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(8690, 770)
+scale = Vector2(1, 1)
+
+[node name="Lava29" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(8690, 515)
+scale = Vector2(1, 1)
+
+[node name="Lava30" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(8690, 260)
+scale = Vector2(1, 1)
+
+[node name="Lava31" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(8040, 200)
+scale = Vector2(0.312586, 0.315174)
+
+[node name="Lava32" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(8120, 200)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava33" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(8120, 120)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava34" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(7640, 200)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava35" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(7560, 200)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava36" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(7560, 120)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava37" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(7720, 360)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava38" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(7720, 440)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava39" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(7960, 360)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava40" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(7960, 440)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava44" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(8120, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava45" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(8040, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava46" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(7960, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava47" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(7880, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava48" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(7800, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava49" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(7720, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava50" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(7640, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava51" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(7560, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava52" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(5560, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava53" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(5640, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava54" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(5720, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava55" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(5800, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava56" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(5880, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava57" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(5960, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava58" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(6040, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava59" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(6120, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava60" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(6200, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava61" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(6280, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava87" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(6600, 1720)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava88" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(6680, 1720)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava89" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(6760, 1640)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava92" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(6760, 1720)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava90" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(6680, 1640)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava91" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(6600, 1640)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava62" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(5480, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava63" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(5405, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava64" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(5320, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava65" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(5240, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava66" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(5160, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava67" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(5160, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava68" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(5080, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava69" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(5000, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava70" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(4920, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava71" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(4840, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava72" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(4760, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava73" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(4680, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava74" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(4600, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava75" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(4520, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava76" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(4120, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava77" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(4040, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava78" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(3960, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava79" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(3880, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava80" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(3800, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava81" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(3720, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava82" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(3640, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava83" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(3560, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava84" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(3480, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava85" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(3400, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava86" parent="Lava" instance=ExtResource("17_ft6cd")]
+z_index = -1
+position = Vector2(3320, 2400)
+scale = Vector2(0.312512, 0.315174)
+
+[node name="Lava28" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(7400, 1710)
+scale = Vector2(0.931943, 1.01027)
+
+[node name="Lava43" parent="Lava" instance=ExtResource("17_ft6cd")]
+position = Vector2(8280, 1710)
+scale = Vector2(0.931943, 1.01027)
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="Sprite2D3" parent="Background" instance=ExtResource("15_3p2gp")]
+position = Vector2(264, 248)
+
+[node name="Sprite2D4" parent="Background" instance=ExtResource("15_3p2gp")]
+z_index = -3
+position = Vector2(776, 248)
+
+[node name="Sprite2D5" parent="Background" instance=ExtResource("15_3p2gp")]
+z_index = -3
+position = Vector2(1287, 248)
+scale = Vector2(0.997794, 1)
+
+[node name="Sprite2D6" parent="Background" instance=ExtResource("15_3p2gp")]
+z_index = -3
+position = Vector2(1798, 248)
+
+[node name="Pentagram" parent="Background" instance=ExtResource("14_3p2gp")]
+position = Vector2(1600, 256)
+
+[node name="Spawners" type="Node2D" parent="."]
+
+[node name="first_top" type="Node2D" parent="Spawners"]
+
+[node name="BombPath" type="Node2D" parent="Spawners/first_top"]
+
+[node name="Path2D" type="Path2D" parent="Spawners/first_top/BombPath"]
+curve = SubResource("Curve2D_cvmbd")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Spawners/first_top/BombPath/Path2D"]
+position = Vector2(608, 32)
+rotation = 3.14159
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Spawners/first_top/BombPath/Path2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_1nqs0")
+}
+
+[node name="BombSpawner" parent="Spawners/first_top" instance=ExtResource("18_bb450")]
+position = Vector2(632, 24)
+
+[node name="first_top2" type="Node2D" parent="Spawners"]
+position = Vector2(280, 172)
+
+[node name="BombPath" type="Node2D" parent="Spawners/first_top2"]
+position = Vector2(15, 11)
+
+[node name="Path2D" type="Path2D" parent="Spawners/first_top2/BombPath"]
+curve = SubResource("Curve2D_ft6cd")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Spawners/first_top2/BombPath/Path2D"]
+position = Vector2(647, 15)
+rotation = 0.876058
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Spawners/first_top2/BombPath/Path2D"]
+root_node = NodePath("../../../../..")
+libraries = {
+&"": SubResource("AnimationLibrary_nfivy")
+}
+
+[node name="BombSpawner" parent="Spawners/first_top2" instance=ExtResource("18_bb450")]
+position = Vector2(632, 24)
+
+[node name="BoxSpawners" type="Node2D" parent="."]
+
+[node name="BoxSpawner" parent="BoxSpawners" instance=ExtResource("19_nfivy")]
+position = Vector2(456, 448)
+flip_h = true
+
+[node name="BoxSpawner2" parent="BoxSpawners" instance=ExtResource("19_nfivy")]
+position = Vector2(1536, 412)
+rotation = 2.30383
+flip_h = true
+
+[node name="BoxSpawner3" parent="BoxSpawners" instance=ExtResource("19_nfivy")]
+position = Vector2(1381, 160)
+rotation = 3.14159
+flip_h = true
+flip_v = true
+
+[node name="Coins" type="Node2D" parent="."]
+
+[node name="Coin" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(712, 422)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(696, 400)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(675, 377)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(667, 344)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(683, 298)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(760, 182)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(249, 145)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(580, 104)
+
+[node name="Coin9" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(439, 290)
+
+[node name="Coin10" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(439, 256)
+
+[node name="Coin11" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(524, 323)
+
+[node name="Coin12" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(148, 430)
+
+[node name="Coin13" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(468, 186)
+
+[node name="Coin14" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(848, 32)
+
+[node name="Coin15" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(864, 32)
+
+[node name="Coin16" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(879, 32)
+
+[node name="Coin17" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(1376, 234)
+
+[node name="Coin18" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(792, 323)
+
+[node name="Coin19" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(792, 304)
+
+[node name="Coin20" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(1488, 170)
+
+[node name="Coin21" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(1576, 144)
+
+[node name="Coin22" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(1624, 144)
+
+[node name="Coin23" parent="Coins" instance=ExtResource("17_bb450")]
+position = Vector2(1719, 172)
