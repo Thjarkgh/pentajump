@@ -14,7 +14,7 @@ var final_time
 var current_scene_name
 
 #bomb movement state
-var is_bomb_moving = false
+#var is_bomb_moving = false
 
 func _ready():
 	# Sets the current scene's name

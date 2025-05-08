@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b4xqkirybewud" path="res://assets/sprites/knight.png" id="1_p0vlq"]
 [ext_resource type="Script" uid="uid://bmhlpeh7yx3t5" path="res://scripts/Player.gd" id="1_v6fml"]
-[ext_resource type="FontFile" uid="uid://wedt0845wngm" path="res://assets/PixelOperator8-Bold.ttf" id="3_mdl7e"]
+[ext_resource type="FontFile" uid="uid://wedt0845wngm" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="3_mdl7e"]
 [ext_resource type="FontFile" uid="uid://bgbwxdfilqs6" path="res://assets/fonts/PixelOperator8.ttf" id="4_qu4a1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qu4a1"]

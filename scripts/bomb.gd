@@ -2,28 +2,28 @@ extends Area2D
 
 var is_spawning = true
 var speed = 100
-@export var starting_direction = -1
 var current_scene_path
 var bomb_path
 var bomb_animation
 var marked_for_destruction = false
+var inverted = true
 
 
 func _ready() -> void:
 	#var path = self.get_parent().name;
-	Global.is_bomb_moving = false
+	#Global.is_bomb_moving = false
 	$AnimatedSprite2D.play("spawn")
 	current_scene_path = "/root/" + Global.current_scene_name #+ "/" #current scene
 	bomb_path = self.get_parent() # get_node(current_scene_path + "/Spawners/" + path + "/BombPath/Path2D/PathFollow2D") #PathFollow2D
 	bomb_animation = self.get_parent().get_parent().find_child("AnimationPlayer") # + "/AnimationPlayer") # get_node(current_scene_path + "/Spawners/" + path + "/BombPath/Path2D/AnimationPlayer") #AnimationPlayer
-	$AnimatedSprite2D.flip_v = true
+	$AnimatedSprite2D.flip_v = inverted
 	bomb_animation.stop()
 
 func _on_timer_timeout() -> void:
 	if is_spawning == true:
 		is_spawning = false;
 		$AnimatedSprite2D.play("walk")
-		Global.is_bomb_moving = true
+		#Global.is_bomb_moving = true
 		bomb_animation.start("bomb_movement")
 	else:
 		if is_instance_valid(self):
@@ -49,7 +49,7 @@ func _on_body_entered(body: Node2D) -> void:
 func _on_animated_sprite_2d_animation_finished() -> void:
 	is_spawning = false # Replace with function body.
 	$AnimatedSprite2D.play("walk")
-	Global.is_bomb_moving = true
+	#Global.is_bomb_moving = true
 	bomb_animation.play("bomb_movement")
 	if marked_for_destruction == true:
 		Global.is_bomb_moving = false

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cjn5vojtdt7wm" path="res://scripts/door.gd" id="1_1ebfc"]
 [ext_resource type="Texture2D" uid="uid://bwu8yr66c8r63" path="res://assets/sprites/world_tileset.png" id="1_mg2as"]
-[ext_resource type="FontFile" uid="uid://wedt0845wngm" path="res://assets/PixelOperator8-Bold.ttf" id="2_1ebfc"]
+[ext_resource type="FontFile" uid="uid://wedt0845wngm" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="2_1ebfc"]
 [ext_resource type="FontFile" uid="uid://bgbwxdfilqs6" path="res://assets/fonts/PixelOperator8.ttf" id="3_ao1jx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7q0m"]

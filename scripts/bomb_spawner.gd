@@ -2,7 +2,7 @@ extends Node2D
 
 var bomb = preload("res://scenes/Bomb.tscn")
 
-@export var path = "first_top"
+@export var inverted = false
 
 #references to our scene, PathFollow2D path, and AnimationPlayer path
 var current_scene_path
@@ -27,15 +27,16 @@ func shoot():
 	#returns spawned bomb
 	#bomb_animation.play("bomb_movement")
 	var spawned_bomb = bomb.instantiate()
+	spawned_bomb.inverted = inverted
 	return spawned_bomb
 
 func _on_timer_timeout() -> void:
 	#reset animation before shooting    
 	$AnimatedSprite2D.play("default")
 	#spawns a bomb onto our path if there are no bombs available
-	if ready:
-		if bomb_path.get_child_count() <= 0:
-			bomb_path.add_child(shoot())
+	#if ready:
+	if bomb_path.get_child_count() <= 0:
+		bomb_path.add_child(shoot())
 #	else:
 		# Clear all existing bombs  
 		#if Global.is_bomb_moving == false:
@@ -45,3 +46,8 @@ func _on_timer_timeout() -> void:
 #				bomb_animation.stop()
 		
 	
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if $AnimatedSprite2D.animation == "spawn":
+		$AnimatedSprite2D.play("default")
